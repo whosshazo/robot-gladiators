@@ -3,28 +3,27 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-// You can also log multiple values at once like this
-console.log(playerName, playerAttack, playerHealth);
+// // You can also log multiple values at once like this
+// console.log(playerName, playerAttack, playerHealth);
 
 var enemyNames = ["Roborto", "Amy-Android", "Robo Trumble"]; console.log(enemyNames); 
-var enemyHealth = 50;
+var enemyHealth = 15;
 var enemyAttack = 12;
 
-var fight = function(enemyName) {
 
-for(var i = 0; i < enemyNames.length; i++) {
-  console.log(enemyNames[i]);
-  console.log(i);
-  console.log(enemyNames[i] + " is at " + i + " index ");
+var fight = function(enemyName) {
+  // repeat and execute as long as the enemy-robot is alive 
+  while(enemyHealth > 0) {
+
 
 
 // fight function
 
     // Alert players that they are starting the round
-    window.alert("Welcome to Robot Gladiators!");
+    // window.alert("Welcome to Robot Gladiators!");
   
     // ask player if they'd like to fight or run
-     var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
+    var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
   
     // if player choses to fight, fight
     if (promptFight === "fight" || promptFight === "FIGHT") {
@@ -73,6 +72,11 @@ for(var i = 0; i < enemyNames.length; i++) {
       window.alert("You need to pick a valid option. Try again!");
     }
   };
-}  
+}
+for (var i = 0; i < enemyNames.length; i++) {
+  var pickedEnemyName = enemyNames[i];
+  enemyHealth = 50;
+  fight(pickedEnemyName);
+} 
   // run fight function to start game
   fight();
